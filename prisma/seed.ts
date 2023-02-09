@@ -30,6 +30,41 @@ type Comment = {
     datePublished: Date
 }
 
+async function seed() {
+    await Promise.all(
+        getUsers().map(user => {
+            return db.user.create({
+                data: {
+                    firstname: user.firstname,
+                    lastname: user.lastname,
+                    email: user.email
+                }
+            })
+        })
+    );
+    const user = await db.user.findFirst({
+        where: {
+            firstname: "Hamid",
+        }
+    });
+
+    await Promise.all(
+        getPlants().map((plant) => {
+            const { title, description, datePublished } = plant;
+            return db.plant.create({
+                data: {
+                    title,
+                    description,
+                    datePublished,
+                    userId: `${user?.id}`
+                },
+            });
+        })
+    );
+}
+
+seed();
+
 function getUsers(): Array<User> {
     return [
         {
@@ -58,13 +93,13 @@ function getPlants(): Array<Plant> {
             datePublished: new Date()
         },
         {
-            title: "Samir",
-            description: "Idurar",
+            title: "Roses rouges",
+            description: "Belle roses rouges éclatantes",
             datePublished: new Date()
         },
         {
-            title: "Ammâr",
-            description: "Idurar",
+            title: "Roses blanches ",
+            description: "Superbe roses blanches magnifiques",
             datePublished: new Date()
         }
     ]
