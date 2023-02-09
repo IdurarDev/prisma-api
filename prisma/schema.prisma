@@ -17,7 +17,7 @@ model User {
     email     String    @unique
     firstname String
     lastname  String
-    bioUser   String
+    bioUser   String?
     Article   Article[]
     Blog      Blog[]
     Comment   Comment[]
