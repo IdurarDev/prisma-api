@@ -9,3 +9,69 @@ datasource db {
     provider = "postgresql"
     url      = env("DATABASE_URL")
 }
+
+model User {
+    id        String    @id @default(uuid())
+    createdAt DateTime  @default(now())
+    updatedAt DateTime  @updatedAt
+    email     String    @unique
+    firstname String
+    lastname  String
+    bioUser   String
+    Article   Article[]
+    Blog      Blog[]
+    Comment   Comment[]
+    Plant     Plant[]
+}
+
+// en 3eme ar g dans @relation ' onDelete: Cascade ' = si on supprime l'user tout ce qui a en rapport avec lui sera supprimé
+model Plant {
+    id            String          @id @default(uuid())
+    createdAt     DateTime        @default(now())
+    updatedAt     DateTime        @updatedAt
+    datePublished DateTime
+    title         String
+    description   String
+    user          User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+    userId        String
+    PlantCategory PlantCategory[]
+}
+
+model Article {
+    id            String   @id @default(uuid())
+    createdAt     DateTime @default(now())
+    updatedAt     DateTime @updatedAt
+    datePublished DateTime
+    title         String
+    description   String
+    user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+    userId        String
+}
+
+model Blog {
+    id            String   @id @default(uuid())
+    createdAt     DateTime @default(now())
+    updatedAt     DateTime @updatedAt
+    datePublished DateTime
+    title         String
+    description   String
+    user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+    userId        String
+}
+
+model Comment {
+    id            String   @id @default(uuid())
+    createdAt     DateTime @default(now())
+    updatedAt     DateTime @updatedAt
+    datePublished DateTime
+    user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+    userId        String
+}
+
+model PlantCategory {
+    id        String   @id @default(uuid())
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    plant     Plant    @relation(fields: [plantId], references: [id], onDelete: Cascade)
+    plantId   String
+}
