@@ -53,7 +53,7 @@ userRouter.post("/",
 
 // PUT: Update an User 
 // Params: fistname, lastname, email
-userRouter.put("/",
+userRouter.put("/:id",
     body("firstname").isString(),
     body("lastname").isString(),
     body("email").isString(),
