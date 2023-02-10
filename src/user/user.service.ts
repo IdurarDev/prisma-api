@@ -20,6 +20,11 @@ export const getUser = async (id: string): Promise<User | null> => {
     return db.user.findUnique({
         where: {
             id,
+        },
+        select: {
+            id: true,
+            firstname: true,
+            lastname: true,
         }
     })
 }
