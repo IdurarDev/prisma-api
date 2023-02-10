@@ -49,3 +49,24 @@ export const createUser = async (user: Omit<User, "id">): Promise<User> => {
     })
 }
 
+export const updateUser = async (user: Omit<User, "id">, id: string): Promise<User> => {
+    const { firstname, lastname, email } = user;
+    return db.user.update({
+        where: {
+            id,
+        },
+        data: {
+            firstname,
+            lastname,
+            email,
+        },
+        select: {
+            id: true,
+            firstname: true,
+            lastname: true,
+            email: true,
+        }
+    })
+
+}
+
