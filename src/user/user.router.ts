@@ -29,3 +29,24 @@ userRouter.get("/:id", async (req, res) => {
         return res.status(500).json(err.message)
     }
 })
+
+// POST: Create a User 
+// Params: fistname, lastname, email
+userRouter.post("/",
+    body("firstname").isString(),
+    body("lastname").isString(),
+    body("email").isString(),
+    async (req: Request, res: Response) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+        try {
+            const user = req.body;
+            const newUser = await UserService.createUser(user);
+            return res.status(201).json(newUser);
+        } catch (err: any) {
+            return res.status(500).json(err.message)
+        }
+    }
+)
