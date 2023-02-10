@@ -67,6 +67,12 @@ export const updateUser = async (user: Omit<User, "id">, id: string): Promise<Us
             email: true,
         }
     })
-
 }
 
+export const deleteUSer = async (id: string): Promise<void> => {
+    await db.user.delete({
+        where: {
+            id,
+        }
+    })
+}
