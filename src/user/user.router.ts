@@ -16,7 +16,7 @@ userRouter.get("/", async (req: Request, res: Response) => {
     }
 })
 
-// GET: A single user by Id
+// GET: A Single User by Id
 userRouter.get("/:id", async (req, res) => {
     const id: string = req.params.id
     try {
@@ -30,7 +30,7 @@ userRouter.get("/:id", async (req, res) => {
     }
 })
 
-// POST: Create a User 
+// POST: Create an User 
 // Params: fistname, lastname, email
 userRouter.post("/",
     body("firstname").isString(),
@@ -45,6 +45,28 @@ userRouter.post("/",
             const user = req.body;
             const newUser = await UserService.createUser(user);
             return res.status(201).json(newUser);
+        } catch (err: any) {
+            return res.status(500).json(err.message)
+        }
+    }
+)
+
+// PUT: Update an User 
+// Params: fistname, lastname, email
+userRouter.put("/",
+    body("firstname").isString(),
+    body("lastname").isString(),
+    body("email").isString(),
+    async (req: Request, res: Response) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+        const id: string = req.params.id
+        try {
+            const user = req.body;
+            const updatedUser = await UserService.updateUser(user, id);
+            return res.status(200).json(updatedUser);
         } catch (err: any) {
             return res.status(500).json(err.message)
         }
