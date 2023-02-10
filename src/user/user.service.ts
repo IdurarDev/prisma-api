@@ -14,4 +14,12 @@ export const listUsers = async (): Promise<User[]> => {
             lastname: true,
         }
     })
-} 
+}
+
+export const getUser = async (id: string): Promise<User | null> => {
+    return db.user.findUnique({
+        where: {
+            id,
+        }
+    })
+}
