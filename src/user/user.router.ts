@@ -72,3 +72,14 @@ userRouter.put("/",
         }
     }
 )
+
+// DELETE: Delete an User based on the id
+userRouter.delete("/:id", async (req: Request, res: Response) => {
+    const id: string = req.params.id;
+    try {
+        await UserService.deleteUser(id);
+        return res.status(204).json("User has been deleted successfully");
+    } catch (err: any) {
+        return res.status(500).json(err.message);
+    }
+})
