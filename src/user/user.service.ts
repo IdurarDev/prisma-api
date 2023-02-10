@@ -69,7 +69,7 @@ export const updateUser = async (user: Omit<User, "id">, id: string): Promise<Us
     })
 }
 
-export const deleteUSer = async (id: string): Promise<void> => {
+export const deleteUser = async (id: string): Promise<void> => {
     await db.user.delete({
         where: {
             id,
