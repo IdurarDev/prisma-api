@@ -11,7 +11,7 @@ userRouter.get("/", async (req: Request, res: Response) => {
     try {
         const users = await UserService.listUsers()
         return res.status(200).json(users)
-    } catch (err) {
+    } catch (err: any) {
         return res.status(500).json(err.message)
     }
 })
