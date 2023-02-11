@@ -15,3 +15,16 @@ plantRouter.get('/', async (req: Request, res: Response) => {
         return res.status(500).json(err.message);
     }
 });
+
+// GET: A plant based on the id
+plantRouter.get('/:id', async (req: Request, res: Response) => {
+    const id: string = req.params.id;
+    try {
+        const plant = await PlantService.getPlant(id);
+        if (plant) {
+            return res.status(200).json(plant);
+        }
+    } catch (err: any) {
+        return res.status(500).json(err.message);
+    }
+});
