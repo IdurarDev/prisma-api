@@ -50,3 +50,25 @@ plantRouter.post('/',
         }
     }
 );
+
+// PUT: Update plant
+plantRouter.put('/',
+    body("title").isString(),
+    body("description").isString,
+    body("userId").isString(),
+    body("datePublished").isDate().toDate(),
+    async (req: Request, res: Response) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+        const id: string = req.params.id;
+        try {
+            const plant = req.body;
+            const updatedPlant = await PlantService.updatePlant(plant, id);
+            return res.status(201).json(updatedPlant);
+        } catch (err: any) {
+            return res.status(500).json(err.message);
+        }
+    }
+);
