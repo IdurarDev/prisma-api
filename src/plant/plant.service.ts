@@ -10,6 +10,13 @@ type Plant = {
     // userId: string;
 };
 
+type PlantNew = {
+    title: string;
+    datePublished: Date;
+    description: string;
+    userId: string;
+}
+
 export const listPlants = async (): Promise<Plant[]> => {
     return db.plant.findMany({
         select: {
@@ -49,5 +56,34 @@ export const getPlant = async (id: string): Promise<Plant | null> => {
                 }
             }
         }
+    })
+}
+
+export const createPlant = async (plant: PlantNew): Promise<Plant> => {
+    const { title, description, datePublished, userId } = plant;
+    const parsedDate: Date = new Date(datePublished);
+
+    return db.plant.create({
+        data: {
+            title,
+            description,
+            userId,
+            datePublished: parsedDate,
+        },
+        select: {
+            id: true,
+            title: true,
+            description: true,
+            datePublished: true,
+            userId: true,
+            user: {
+                select: {
+                    id: true,
+                    firstname: true,
+                    lastname: true,
+                    email: true,
+                }
+            }
+        },
     })
 }
