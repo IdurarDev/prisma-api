@@ -43,7 +43,7 @@ plantRouter.post('/',
         try {
             const plant = req.body;
             const newPlant = await PlantService.createPlant(plant);
-            return res.status(200).json(newPlant);
+            return res.status(201).json(newPlant);
         } catch (err: any) {
             return res.status(500).json(err.message);
         }
