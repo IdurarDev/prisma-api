@@ -75,7 +75,6 @@ export const createPlant = async (plant: PlantNew): Promise<Plant> => {
             title: true,
             description: true,
             datePublished: true,
-            // userId: true,
             user: {
                 select: {
                     id: true,
