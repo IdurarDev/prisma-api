@@ -29,3 +29,25 @@ export const listPlants = async (): Promise<Plant[]> => {
         }
     })
 }
+
+export const getPlant = async (id: string): Promise<Plant | null> => {
+    return db.plant.findUnique({
+        where: {
+            id,
+        },
+        select: {
+            id: true,
+            title: true,
+            description: true,
+            datePublished: true,
+            user: {
+                select: {
+                    id: true,
+                    firstname: true,
+                    lastname: true,
+                    email: true,
+                }
+            }
+        }
+    })
+}
