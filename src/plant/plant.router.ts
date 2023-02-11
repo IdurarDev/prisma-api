@@ -30,6 +30,7 @@ plantRouter.get('/:id', async (req: Request, res: Response) => {
 });
 
 // POST: Create a new plant
+// Params: title, description, datePublished, userId
 plantRouter.post('/',
     body("title").isString(),
     body("description").isString,
