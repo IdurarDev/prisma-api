@@ -116,3 +116,11 @@ export const updatePlant = async (plant: PlantNew, id: string): Promise<Plant> =
         }
     })
 }
+
+export const deletePlant = async (id: string): Promise<void> => {
+    await db.plant.delete({
+        where: {
+            id,
+        }
+    })
+}
