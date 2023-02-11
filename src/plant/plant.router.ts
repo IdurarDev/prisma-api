@@ -78,7 +78,7 @@ plantRouter.delete('/:id', async (req: Request, res: Response) => {
     const id = req.params.id;
     try {
         await PlantService.deletePlant(id);
-        return res.status(200).json("Plant has been deleted successfully");
+        return res.status(204).json("Plant has been deleted successfully");
     } catch (err: any) {
         return res.status(500).json(err.message);
     }
