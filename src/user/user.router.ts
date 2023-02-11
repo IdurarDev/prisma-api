@@ -17,7 +17,7 @@ userRouter.get("/", async (req: Request, res: Response) => {
 })
 
 // GET: A Single User by Id
-userRouter.get("/:id", async (req, res) => {
+userRouter.get("/:id", async (req: Request, res: Response) => {
     const id: string = req.params.id
     try {
         const user = await UserService.getUser(id)
