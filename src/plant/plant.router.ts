@@ -82,5 +82,4 @@ plantRouter.delete('/:id', async (req: Request, res: Response) => {
     } catch (err: any) {
         return res.status(500).json(err.message);
     }
-
 })
