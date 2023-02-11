@@ -52,11 +52,12 @@ plantRouter.post('/',
 );
 
 // PUT: Update plant
-plantRouter.put('/',
+// Params: title, description, userId, datePublished
+plantRouter.put('/:id',
     body("title").isString(),
     body("description").isString,
     body("userId").isString(),
-    body("datePublished").isDate().toDate(),
+    body("datePublished").isDate(),
     async (req: Request, res: Response) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
@@ -72,3 +73,14 @@ plantRouter.put('/',
         }
     }
 );
+
+plantRouter.delete('/:id', async (req: Request, res: Response) => {
+    const id = req.params.id;
+    try {
+        await PlantService.deletePlant(id);
+        return res.status(200).json("Plant has been deleted successfully");
+    } catch (err: any) {
+        return res.status(500).json(err.message);
+    }
+
+})
