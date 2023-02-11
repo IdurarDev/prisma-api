@@ -28,3 +28,24 @@ plantRouter.get('/:id', async (req: Request, res: Response) => {
         return res.status(500).json(err.message);
     }
 });
+
+// POST: Create a new plant
+plantRouter.post('/',
+    body("title").isString(),
+    body("description").isString,
+    body("userId").isString(),
+    body("datePublished").isDate().toDate(),
+    async (req: Request, res: Response) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+        try {
+            const plant = req.body;
+            const newPlant = await PlantService.createPlant(plant);
+            return res.status(200).json(newPlant);
+        } catch (err: any) {
+            return res.status(500).json(err.message);
+        }
+    }
+);
