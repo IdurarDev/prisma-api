@@ -75,7 +75,7 @@ export const createPlant = async (plant: PlantNew): Promise<Plant> => {
             title: true,
             description: true,
             datePublished: true,
-            userId: true,
+            // userId: true,
             user: {
                 select: {
                     id: true,
@@ -85,5 +85,34 @@ export const createPlant = async (plant: PlantNew): Promise<Plant> => {
                 }
             }
         },
+    })
+}
+
+export const updatePlant = async (plant: PlantNew, id: string): Promise<Plant> => {
+    const { title, description, datePublished, userId } = plant;
+    return db.plant.update({
+        where: {
+            id,
+        },
+        data: {
+            title,
+            description,
+            datePublished,
+            userId,
+        },
+        select: {
+            id: true,
+            title: true,
+            description: true,
+            datePublished: true,
+            user: {
+                select: {
+                    id: true,
+                    firstname: true,
+                    lastname: true,
+                    email: true,
+                }
+            }
+        }
     })
 }
