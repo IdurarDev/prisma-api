@@ -13,8 +13,8 @@ type Plant = {
 type PlantNew = {
     title: string;
     datePublished: Date;
-    description: string;
     userId: string;
+    description: string;
 }
 
 export const listPlants = async (): Promise<Plant[]> => {
@@ -60,7 +60,7 @@ export const getPlant = async (id: string): Promise<Plant | null> => {
 }
 
 export const createPlant = async (plant: PlantNew): Promise<Plant> => {
-    const { title, description, datePublished, userId } = plant;
+    const { title, userId, description, datePublished } = plant;
     const parsedDate: Date = new Date(datePublished);
 
     return db.plant.create({
