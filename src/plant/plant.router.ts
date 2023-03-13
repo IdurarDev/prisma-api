@@ -33,7 +33,7 @@ plantRouter.get('/:id', async (req: Request, res: Response) => {
 // Params: title, description, datePublished, userId
 plantRouter.post('/',
     body("title").isString(),
-    body("description").isString,
+    body("description").isString(),
     body("userId").isString(),
     body("datePublished").isISO8601().toDate(),
     async (req: Request, res: Response) => {
