@@ -55,9 +55,9 @@ plantRouter.post('/',
 // Params: title, description, userId, datePublished
 plantRouter.put('/:id',
     body("title").isString(),
-    body("description").isString,
+    body("description").isString(),
     body("userId").isString(),
-    body("datePublished").isDate().toDate(),
+    body("datePublished").isISO8601().toDate(),
     async (req: Request, res: Response) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
