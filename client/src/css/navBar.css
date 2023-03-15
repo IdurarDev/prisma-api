@@ -2,3 +2,16 @@
     display: grid;
     grid-template-columms: repeat(5, 1fr);
 }
+
+.navbar-header ul {
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+.navbar-header ul li {
+    list-style:none;
+}
+.navbar-header a {
+    text-decoration-line:none;
+}
