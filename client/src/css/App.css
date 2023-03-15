@@ -1,0 +1,8 @@
+.App {
+  text-align: center;
+}
+
+.navbar-header {
+    display: grid;
+    grid-template-columms: repeat(5, 1fr);
+}
