@@ -2,7 +2,7 @@ import React from 'react';
 import MainRoute from './components/routes/mainRoutes'
 
 
-import './App.css';
+import '../src/css/App.css';
 
 function App() {
     return (
