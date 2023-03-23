@@ -1,0 +1,7 @@
+main {
+    height: 80vh;
+}
+.main-section {
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+}
