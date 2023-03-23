@@ -1,4 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
+import { Plant } from "@prisma/client";
 
 import "../css/home.css";
 
@@ -22,7 +23,7 @@ function Home() {
         getAPI();
     }, []);
 
-    const [apiData, setApiData] = useState([]);
+    const [apiData, setApiData] = useState<Plant[]>([]);
     const [loading, setLoading] = useState(true);
     { console.log('api data: ', apiData) }
     return (
@@ -37,15 +38,17 @@ function Home() {
                 ) : (
                     <section>
                         {
-                            // apiData.map((items, key) => {
-                            //     return (
-                            //         <section key={key}>
-                            //             <article>
-                            //                 <h2>{items}</h2>
-                            //             </article>
-                            //         </section>
-                            //     )
-                            // })
+                            apiData.map((plant, key) => {
+                                return (
+                                    <section key={key}>
+                                        <article>
+                                            <h2>{plant.title}</h2>
+                                            <h3>{plant.description}</h3>
+                                            <p>{ }</p>
+                                        </article>
+                                    </section>
+                                )
+                            })
                         }
                     </section>
                 )
