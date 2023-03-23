@@ -26,25 +26,20 @@ function Home() {
 
     return (
         <Fragment>
-            <header>
-                <h1>Welcome to the home page</h1>
-            </header>
             <main>
+                <h1>Welcome to the home page</h1>
 
                 {loading === true ? (
                     <h2>Loading...</h2>
                 ) : (
-                    <section>
+                    <section className="main-section">
                         {
                             apiData.map((plant, key) => {
                                 return (
-                                    <section key={key}>
-                                        <article>
-                                            <h2>{plant.title}</h2>
-                                            <h3>{plant.description}</h3>
-                                            <p>{ }</p>
-                                        </article>
-                                    </section>
+                                    <article key={key}>
+                                        <h3>{plant.title}</h3>
+                                        <p>{plant.description}</p>
+                                    </article>
                                 )
                             })
                         }
