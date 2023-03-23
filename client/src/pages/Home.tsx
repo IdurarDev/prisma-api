@@ -3,23 +3,22 @@ import React, { Fragment, useState, useEffect } from "react";
 import "../css/home.css";
 
 function Home() {
+    const getAPI = () => {
+
+        const API_LOCAL: string = 'http://localhost:8000/api/plants/';
+
+        fetch(API_LOCAL)
+            .then((res) => {
+                console.log('result: ', res);
+                return res.json();
+            })
+            .then((data) => {
+                console.log('data:', data);
+                setLoading(false);
+                setApiData(data);
+            });
+    };
     useEffect(() => {
-        const getAPI = () => {
-
-            const API_LOCAL: string = 'http://localhost:8000/api/plants/';
-
-
-            fetch(API_LOCAL)
-                .then((res) => {
-                    console.log('result: ', res);
-                    return res.json();
-                })
-                .then((data) => {
-                    console.log('data:', data);
-                    setLoading(false);
-                    setApiData(data);
-                });
-        };
         getAPI();
     }, []);
 
