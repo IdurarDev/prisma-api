@@ -4,7 +4,11 @@ import { Plant } from "@prisma/client";
 import "../css/home.css";
 
 function Home() {
-    const getAPI = () => {
+    useEffect(() => {
+        getAPI();
+    }, []);
+
+    const getAPI = (): void => {
         const API_LOCAL: string = 'http://localhost:8000/api/plants/';
 
         fetch(API_LOCAL)
@@ -16,9 +20,6 @@ function Home() {
                 setApiData(data);
             });
     };
-    useEffect(() => {
-        getAPI();
-    }, []);
 
     const [apiData, setApiData] = useState<Plant[]>([]);
     const [loading, setLoading] = useState(true);
