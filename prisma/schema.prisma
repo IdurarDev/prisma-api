@@ -24,7 +24,7 @@ model User {
     Plant     Plant[]
 }
 
-// en 3eme ar g dans @relation ' onDelete: Cascade ' = si on supprime l'user tout ce qui a en rapport avec lui sera supprimé
+// en 3eme arg dans @relation ' onDelete: Cascade ' = si on supprime l'user tout ce qui a en rapport avec lui sera supprimé
 model Plant {
     id            String          @id @default(uuid())
     createdAt     DateTime        @default(now())
