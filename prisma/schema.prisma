@@ -35,6 +35,7 @@ model Plant {
     user          User            @relation(fields: [userId], references: [id], onDelete: Cascade)
     userId        String
     PlantCategory PlantCategory[]
+    Image         Image[]
 }
 
 model Article {
@@ -76,4 +77,11 @@ model PlantCategory {
     title     String
     plant     Plant    @relation(fields: [plantId], references: [id], onDelete: Cascade)
     plantId   String
+}
+
+model Image {
+    id      String  @id @default(uuid())
+    title   String
+    Plant   Plant?  @relation(fields: [plantId], references: [id])
+    plantId String?
 }
