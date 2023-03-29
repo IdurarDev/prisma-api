@@ -1,6 +1,6 @@
 import { Fragment, useState, useEffect } from "react";
 import { Plant } from "@prisma/client";
-
+import bannerPlant from "../../images/plant-banner.jpg"
 import "../../css/home.css";
 
 function Home() {
@@ -28,6 +28,7 @@ function Home() {
         <Fragment>
             <main>
                 <h1>Welcome to the home page</h1>
+                <img className="bannerHome" src={bannerPlant} alt="une jolie bannière de plantes" />
 
                 {loading === true ? (
                     <h2>Loading...</h2>
