@@ -19,20 +19,20 @@ function Login() {
                     <Form>
                         <div>
                             <label htmlFor="Email">Email: </label>
-                            <input type="email" name="email" />
+                            <input type="email" name="Email" />
                         </div>
                         <div>
-                            <label htmlFor="Email">Password : </label>
-                            <input type="password" name="password" />
+                            <label htmlFor="Email">Password: </label>
+                            <input type="password" name="Password" />
                         </div>
                         <div>
-                            <button>Submit</button>
+                            <button type="submit">Submit</button>
                         </div>
                     </Form>
                 }
             </Formik>
         </div>
-    </section>
+    </section >
     )
 }
 
