@@ -28,3 +28,25 @@ articleRouter.get('/:id', async (req: Request, res: Response) => {
         return res.status(500).json(err.message);
     }
 })
+
+// POST: Create a new article.
+// Params: title, description, datePublished, userId.
+articleRouter.post('/',
+    body("title").isString(),
+    body("description").isString(),
+    body("userId").isString(),
+    body("datePublished").isISO8601().toDate(),
+    async (req: Request, res: Response) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+        try {
+            const article = req.body;
+            const newArticle = await ArticleService.createArticle(article);
+            return res.status(200).json(newArticle);
+        } catch (err: any) {
+            return res.status(500).json(err.message);
+        }
+    }
+)
