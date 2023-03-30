@@ -111,3 +111,9 @@ export const updateArticle = async (article: ArticleNew, id: string): Promise<Ar
         }
     })
 }
+
+export const deleteArticle = async (id: string): Promise<void> => {
+    await db.article.delete({
+        where: { id, },
+    })
+}
