@@ -50,3 +50,26 @@ articleRouter.post('/',
         }
     }
 )
+
+// PUT: Update article
+// Params: title, description, userId, datePublished
+articleRouter.put('/:id',
+    body("title").isString(),
+    body("description").isString(),
+    body("userId").isString(),
+    body("datePublished").isISO8601().toDate(),
+    async (req: Request, res: Response) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+        const id: string = req.params.id;
+        try {
+            const article = req.body;
+            const updatedArticle = await ArticleService.updateArticle(article, id);
+            return res.status(201).json(updatedArticle);
+        } catch (err: any) {
+            res.status(500).json(err.message);
+        }
+    }
+)
