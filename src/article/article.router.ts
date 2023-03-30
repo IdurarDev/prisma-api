@@ -73,3 +73,14 @@ articleRouter.put('/:id',
         }
     }
 )
+
+// DELETE an article based on id
+articleRouter.delete('/:id', async (req: Request, res: Response) => {
+    const id: string = req.params.id;
+    try {
+        await ArticleService.deleteArticle(id);
+        return res.status(200).json("Article has been deleted successfully");
+    } catch (err: any) {
+        return res.status(500).json(err.message);
+    }
+})
