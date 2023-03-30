@@ -61,6 +61,20 @@ async function seed() {
             });
         })
     );
+
+    await Promise.all(
+        getArticles().map((article) => {
+            const { title, description, datePublished } = article;
+            return db.article.create({
+                data: {
+                    title,
+                    description,
+                    datePublished,
+                    userId: `${user?.id}`
+                }
+            })
+        })
+    )
 }
 
 seed();
@@ -108,18 +122,18 @@ function getPlants(): Array<Plant> {
 function getArticles(): Array<Article> {
     return [
         {
-            title: "Hamid",
-            description: "Idurar",
+            title: "Les bienfaits de l'huile de nigelle.",
+            description: "Cette huile est exceptionnelle tellement elle contient de bienfaits pour le corps,en interne ou en externe",
             datePublished: new Date()
         },
         {
-            title: "Samir",
-            description: "Idurar",
+            title: "Les bienfaits du miel de jujubier royale (sidr maliky).",
+            description: "Ce miel est connu de tous ou de presque tous tellement il est bénéfique pour l'humaine.",
             datePublished: new Date()
         },
         {
-            title: "Ammâr",
-            description: "Idurar",
+            title: "Le costus indien qu'est ce que c'est ?",
+            description: "C'est une morceau de bois qui contient beaucoup de bienfaits pour renforcer le système immunitaire",
             datePublished: new Date()
         }
     ]
