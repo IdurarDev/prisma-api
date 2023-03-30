@@ -29,3 +29,23 @@ export const ListArticles = async (): Promise<Article[]> => {
         }
     })
 }
+
+export const getArticle = async (id: string): Promise<Article | null> => {
+    return db.article.findUnique({
+        where: { id, },
+        select: {
+            id: true,
+            title: true,
+            description: true,
+            datePublished: true,
+            user: {
+                select: {
+                    id: true,
+                    firstname: true,
+                    lastname: true,
+                    email: true,
+                }
+            }
+        }
+    })
+}
