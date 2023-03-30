@@ -84,3 +84,30 @@ export const createArticle = async (article: ArticleNew): Promise<Article> => {
         }
     })
 }
+
+export const updateArticle = async (article: ArticleNew, id: string): Promise<Article> => {
+    const { title, description, userId, datePublished } = article;
+    return db.article.update({
+        where: { id, },
+        data: {
+            title,
+            description,
+            datePublished,
+            userId,
+        },
+        select: {
+            id: true,
+            title: true,
+            description: true,
+            datePublished: true,
+            user: {
+                select: {
+                    id: true,
+                    firstname: true,
+                    lastname: true,
+                    email: true,
+                }
+            }
+        }
+    })
+}
