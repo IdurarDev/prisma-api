@@ -15,3 +15,16 @@ articleRouter.get('/', async (req: Request, res: Response) => {
         return res.status(500).json(err.message)
     }
 });
+
+// GET: An article based on the id
+articleRouter.get('/:id', async (req: Request, res: Response) => {
+    const id: string = req.params.id;
+    try {
+        const article = await ArticleService.getArticle(id);
+        if (article) {
+            return res.status(200).json(article);
+        }
+    } catch (err: any) {
+        return res.status(500).json(err.message);
+    }
+})
