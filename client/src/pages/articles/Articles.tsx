@@ -1,6 +1,10 @@
 import { Fragment, useState, useEffect } from 'react'
 import { Article } from '@prisma/client';
+
 import bannerArticle from '../../images/article-banner.jpg';
+import '../../css/articles.css';
+
+
 function Articles() {
     useEffect(() => {
         getArticlesApi();
@@ -28,7 +32,7 @@ function Articles() {
                 <section className='text-over-banner'>
                     <article>
                         <h2>Articles sur les plantes</h2>
-                        <p>Bienfaits et vertus des plantes et santé, propriétés médicinales, utilisation en cuisine et thérapeutique pour soigner et prévenir les maladies</p>
+                        <p className='para-over-banner'>Bienfaits et vertus des plantes et santé, propriétés médicinales, utilisation en cuisine et thérapeutique pour soigner et prévenir les maladies</p>
                     </article>
                 </section>
 
