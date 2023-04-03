@@ -29,11 +29,11 @@ function Articles() {
         <Fragment>
             <main>
                 <section className='banner-container'>
-                    <img className='bannerArticle' src={bannerArticle} alt="une belle bouteille au milieu de feuilles vertes" />
                     <article className='text-over-banner'>
                         <h2>Articles sur les plantes</h2>
                         <p className='para-over-banner'>Bienfaits et vertus des plantes et santé, propriétés médicinales, utilisation en cuisine et thérapeutique pour soigner et prévenir les maladies</p>
                     </article>
+                    <img className='bannerArticle' src={bannerArticle} alt="une belle bouteille au milieu de feuilles vertes" />
                 </section>
 
                 <h3>Les articles récents</h3>
