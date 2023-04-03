@@ -27,7 +27,6 @@ function Home() {
     return (
         <Fragment>
             <main>
-                <h1>Welcome to the home page</h1>
                 <img className="bannerHome" src={bannerPlant} alt="une jolie bannière de plantes" />
 
                 {loading === true ? (
