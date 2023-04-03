@@ -1,6 +1,5 @@
 import * as dotenv from "dotenv";
 import express from "express";
-import path from "path";
 import cors from "cors";
 
 import { userRouter } from "./user/user.router";
