@@ -36,7 +36,7 @@ function Home() {
                         {
                             apiData.map((plant, key) => {
                                 return (
-                                    <article key={key}>
+                                    <article className="home-img" key={key}>
                                         <h3>{plant.title}</h3>
                                         <p>{plant.description}</p>
                                     </article>
