@@ -36,7 +36,6 @@ function Articles() {
                     <img className='bannerArticle' src={bannerArticle} alt="une belle bouteille au milieu de feuilles vertes" />
                 </section>
 
-                <h3>Les articles récents</h3>
                 {loading === true ? (
                     <h2>Loading...</h2>
                 ) : (
@@ -44,7 +43,7 @@ function Articles() {
                         {
                             articleApi.map((art, key) => {
                                 return (
-                                    <article key={key}>
+                                    <article className='one-article' key={key}>
                                         <h3>{art.title}</h3>
                                         <p>{art.description}</p>
                                     </article>
