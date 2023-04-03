@@ -1,6 +1,19 @@
+.bannerArticle {
+    position: relative;
+    opacity: 0.9;
+}
+.text-over-banner {
+    position: absolute;
+    top: 170px;
+    left: 355px;
+    color: #ffffffcf;
+    z-index: 10;
+}
+
 .para-over-banner {
     max-width: 650px;
     margin: 0 auto;
+    font-weight: bold;
 }
 
 .all-articles {
