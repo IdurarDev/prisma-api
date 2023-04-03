@@ -1,6 +1,7 @@
 .bannerArticle {
     position: relative;
     opacity: 0.9;
+    margin-bottom: 2rem;
 }
 
 .text-over-banner {
