@@ -1,6 +1,7 @@
 .navbar-header {
     display: grid;
-    grid-template-columms: repeat(5, 1fr);
+    grid-template-columms: repeat(6, 1fr);
+    margin: 1rem;
 }
 
 .navbar-header ul {
