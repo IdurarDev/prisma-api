@@ -1,5 +1,5 @@
 import * as dotenv from "dotenv";
-import express from "express";
+import express, { json } from "express";
 import cors from "cors";
 
 import { userRouter } from "./user/user.router";
@@ -16,8 +16,10 @@ const PORT: number = parseInt(process.env.PORT as string, 10);
 
 const app = express();
 
+app.use(json());
 app.use(cors());
 app.use(express.json());
+
 app.use("/api/users", userRouter)
 app.use("/api/plants", plantRouter)
 app.use("/api/articles", articleRouter)
