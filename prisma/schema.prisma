@@ -47,6 +47,7 @@ model Article {
     description   String
     user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
     userId        String
+    Image         Image[]
 }
 
 model Blog {
@@ -87,4 +88,6 @@ model Image {
     updatedAt DateTime @updatedAt
     Plant     Plant?   @relation(fields: [plantId], references: [id])
     plantId   String?
+    Article   Article? @relation(fields: [articleId], references: [id])
+    articleId String?
 }
