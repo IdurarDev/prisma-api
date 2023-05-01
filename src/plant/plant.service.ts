@@ -1,7 +1,7 @@
 import { db } from "../utils/db.server";
 import type { User } from '../user/user.service'
 
-type Plant = {
+export type Plant = {
     id: string;
     title: string;
     description: string;
