@@ -1,5 +1,10 @@
 import { Pool } from "pg";
 // import * as dotenv from "dotenv";
+import multer from "multer";
+import express from "express";
+import { Request, Response } from "express";
+
+const app = express();
 
 // dotenv.config();
 
@@ -11,41 +16,24 @@ const pool = new Pool({
     port: 5432,
 })
 
-const arrayImages = [
-    '../src/images/plant-product-1',
-    '../src/images/plant-product-2',
-    '../src/images/plant-product-3',
-    '../src/images/plant-product-4',
-    '../src/images/plant-product-5',
-    '../src/images/plant-product-6',
-    '../src/images/plant-product-7',
-    '../src/images/plant-product-8',
-    '../src/images/plant-product-9',
-    '../src/images/plant-product-10'
-]
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
 
-async function addImages() {
+app.post('/upload', upload.single('image'), async (req: Request, res: Response) => {
     const client = await pool.connect();
     try {
-        await client.query('BEGIN'); // begin transaction
-        for (const image of arrayImages) {
-            const data = await readFile(image) // read image
-            // await client.query('INSERT INTO Image (id, title, data) VALUES (?, ?, ?)', [image, data])
-            await client.query('INSERT INTO Image (id, title, "plantId", "createdAt", "data", "updatedAt") VALUES(?, ?, ?, CURRENT_TIMESTAMP, ?, ?)', [image, data])
-        }
-        await client.query('COMMIT'); // end transaction
-        console.log('Les images ont bien été enregistrés dans la base de données')
-    } catch (err: any) {
-        await client.query('ROLLBACK'); // cancel transaction if error occurred
-        console.error("Ereur lors de l'enregistrement des images: ", err.message)
+        const filetitle = req.file?.originalname;
+        const data = req.file?.buffer;
+
+        const query = 'INSERT INTO image (filetitle, data) VALUES (?, ?) RETURNING id';
+        const values = [filetitle, data];
+
+        const result = await client.query(query, values);
+
+        res.json({ id: result.rows[0].id });
     } finally {
         client.release();
     }
-}
+})
 
-async function readFile(path: string) {
-    const fs = require('fs');
-    return await fs.promise.readFile(path);
-}
 
-addImages();
