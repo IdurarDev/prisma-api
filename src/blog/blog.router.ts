@@ -50,3 +50,26 @@ blogRouter.post('/',
         }
     }
 )
+
+// PUT: Update a blog
+// Params: title, description, userId, datePublished
+blogRouter.put('/:id',
+    body('title').isString(),
+    body('description').isString(),
+    body('userId').isString(),
+    body('datePublished').isString(),
+    async (req: Request, res: Response) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+        const id: string = req.params.id;
+        try {
+            const blog = req.body;
+            const updatedBlog = await BlogService.updateBlog(blog, id);
+            return res.status(200).json(updatedBlog);
+        } catch (err: any) {
+            res.status(500).json(err.message);
+        }
+    }
+)
