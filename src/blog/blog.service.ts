@@ -82,3 +82,30 @@ export const createBlog = async (blog: NewBlog): Promise<Blog> => {
         }
     })
 }
+
+export const updateBlog = async (blog: NewBlog, id: string): Promise<Blog> => {
+    const { title, userId, description, datePublished } = blog;
+    return db.blog.update({
+        where: { id, },
+        data: {
+            title,
+            description,
+            datePublished,
+            userId,
+        },
+        select: {
+            id: true,
+            title: true,
+            description: true,
+            datePublished: true,
+            user: {
+                select: {
+                    id: true,
+                    firstname: true,
+                    lastname: true,
+                    email: true,
+                }
+            }
+        }
+    })
+}
