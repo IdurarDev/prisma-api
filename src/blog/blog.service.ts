@@ -109,3 +109,9 @@ export const updateBlog = async (blog: NewBlog, id: string): Promise<Blog> => {
         }
     })
 }
+
+export const deleteBlog = async (id: string): Promise<void> => {
+    await db.blog.delete({
+        where: { id, },
+    })
+}
