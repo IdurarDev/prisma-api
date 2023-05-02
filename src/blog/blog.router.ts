@@ -67,9 +67,20 @@ blogRouter.put('/:id',
         try {
             const blog = req.body;
             const updatedBlog = await BlogService.updateBlog(blog, id);
-            return res.status(200).json(updatedBlog);
+            return res.status(201).json(updatedBlog);
         } catch (err: any) {
             res.status(500).json(err.message);
         }
     }
 )
+
+// DELETE a blog based on its id
+blogRouter.delete('/:id', async (req: Request, res: Response) => {
+    const id: string = req.params.id;
+    try {
+        await BlogService.deleteBlog(id);
+        return res.status(204).json('this blog has been deleted');
+    } catch (err: any) {
+        return res.status(500).json(err.message);
+    }
+})
