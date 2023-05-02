@@ -75,6 +75,20 @@ async function seed() {
             })
         })
     )
+
+    await Promise.all(
+        getBlogs().map((blog) => {
+            const { title, description, datePublished } = blog;
+            return db.blog.create({
+                data: {
+                    title,
+                    description,
+                    datePublished,
+                    userId: `${user?.id}`
+                }
+            })
+        })
+    )
 }
 
 seed();
