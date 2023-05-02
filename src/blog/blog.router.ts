@@ -28,3 +28,25 @@ blogRouter.get('/:id', async (req: Request, res: Response) => {
         return res.status(500).json(err.message);
     }
 })
+
+// POST: Create a new blog.
+// Params: title, description, datePublished, userId
+blogRouter.post('/',
+    body("title").isString(),
+    body("description").isString(),
+    body("userId").isString(),
+    body("datePublished").isISO8601().toDate(),
+    async (req: Request, res: Response) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+        try {
+            const blog = req.body;
+            const newBlog = await BlogService.createBlog(blog)
+            res.status(200).json(newBlog);
+        } catch (err: any) {
+            return res.status(500).json(err.message);
+        }
+    }
+)
