@@ -5,6 +5,7 @@ import cors from "cors";
 import { userRouter } from "./user/user.router";
 import { plantRouter } from "./plant/plant.router";
 import { articleRouter } from "./article/article.router";
+import { blogRouter } from "./blog/blog.router";
 
 dotenv.config();
 // if not port don't just exiting application
@@ -23,6 +24,7 @@ app.use(express.json());
 app.use("/api/users", userRouter)
 app.use("/api/plants", plantRouter)
 app.use("/api/articles", articleRouter)
+app.use("/api/blog", blogRouter)
 
 app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
