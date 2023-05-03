@@ -27,7 +27,7 @@ function Home() {
                     {
                         apiData.map((plant, key) => {
                             return (
-                                <article className="home-img" key={key}>
+                                <article className="one-article" key={key}>
                                     <h3>{plant.title}</h3>
                                     <p>{plant.description}</p>
                                 </article>
