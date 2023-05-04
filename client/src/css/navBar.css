@@ -1,18 +1,40 @@
+.header-top-navbar {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 0.5rem;
+    align-items: center;
+    grid-template-areas: "logo logo logo logo connect search"
+}
+
+.logo {
+    grid-area: logo;
+    height: 50px;
+    width: 50%;
+}
+
+.connect {
+    grid-area: connect;
+}
+
+.search {
+    grid-area: search;
+}
+
 .navbar-header {
     display: grid;
     grid-template-columms: repeat(6, 1fr);
-    margin: 1rem;
+    margin-bottom: 1rem;
 }
 
 .navbar-header ul {
     display: flex;
     justify-content: space-around;
-    
 }
 
 .navbar-header ul li {
     list-style:none;
 }
+
 .navbar-header a {
     text-decoration-line:none;
 }
