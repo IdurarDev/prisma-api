@@ -1,3 +1,5 @@
+import React from 'react';
+
 export const fetchApi = async (url: string, setData: any) => {
     try {
         await fetch(url).then((res) => {

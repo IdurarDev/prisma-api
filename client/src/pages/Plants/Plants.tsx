@@ -1,3 +1,4 @@
+import React from 'react';
 import { Fragment, useState, useEffect } from "react";
 import { Plant } from "@prisma/client";
 
