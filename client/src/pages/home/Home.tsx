@@ -24,6 +24,7 @@ function Home() {
         <Fragment>
             <main>
                 <img className="bannerHome" src={bannerPlant} alt="une jolie bannière de plantes" />
+                <h2 className="home-title-h2">Plantes & Santé</h2>
                 <section className="main-section">
                     {
                         apiData.map((plant, key) => {
@@ -35,6 +36,9 @@ function Home() {
                             )
                         })
                     }
+                </section>
+                <h2 className="home-title-h2">Article sur les bienfaits des plantes</h2>
+                <section className="main-section">
                     {
                         articleApi.map((art, key) => {
                             return (
@@ -45,6 +49,9 @@ function Home() {
                             )
                         })
                     }
+                </section>
+                <h2 className="home-title-h2">Un aperçu du Blog</h2>
+                <section className="main-section">
                     {
                         blogApi.map((blog, key) => {
                             return (
