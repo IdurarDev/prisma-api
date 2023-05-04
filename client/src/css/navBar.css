@@ -1,9 +1,9 @@
 .header-top-navbar {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(7, 1fr);
     grid-gap: 0.5rem;
     align-items: center;
-    grid-template-areas: "logo logo logo logo connect search"
+    grid-template-areas: "logo logo logo logo logo connect search"
 }
 
 .logo {
@@ -14,7 +14,7 @@
 
 .connect {
     grid-area: connect;
-    margin-left: 100%;
+    /* margin-left: 100%; */
 }
 
 .search {
@@ -23,7 +23,7 @@
 
 .navbar-header {
     display: grid;
-    grid-template-columms: repeat(6, 1fr);
+    grid-template-columms: repeat(4, 1fr);
     margin-bottom: 1rem;
 }
 
