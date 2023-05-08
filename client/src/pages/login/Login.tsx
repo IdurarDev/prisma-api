@@ -17,7 +17,12 @@ function Login() {
         <section className='main-container-form-login'>
             <div>
                 <Formik
-                    initialValues={{ Email: "", Password: "" }}
+                    initialValues={
+                        {
+                            Email: "",
+                            Password: ""
+                        }
+                    }
                     onSubmit={value => console.log(value)}
                     validationSchema={schema}
                 >
