@@ -6,6 +6,7 @@ import Plants from '../../pages/Plants/Plants';
 import Articles from '../../pages/articles/Articles';
 import Blogs from '../../pages/blog/Blog';
 import Login from '../../pages/login/Login';
+import Subscribe from '../../pages/subscribe/Subscribe';
 
 const RoutesApp = () => {
     return (
@@ -15,6 +16,7 @@ const RoutesApp = () => {
             <Route path='/articles' element={<Articles />} />
             <Route path='/blog' element={<Blogs />} />
             <Route path='/login' element={<Login />} />
+            <Route path='/subscribe' element={<Subscribe />} />
         </Routes>
     )
 }
