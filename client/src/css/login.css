@@ -1,4 +1,4 @@
-.main-container-form {
+.main-container-form-login {
     background-color: #faf9f9;
     box-shadow: 3px 1px 10px #D8D8D8;
     height: auto;
@@ -7,8 +7,8 @@
     border-radius: 5px;
 }
 
-.container-form {
-    margin: 50px auto;
+.container-form-login {
+    margin: 0 auto;
 }
 
 .login-title-h2, .subscribe-link {
