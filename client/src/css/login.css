@@ -11,7 +11,7 @@
     margin: 50px auto;
 }
 
-.login-title-h2 {
+.login-title-h2, .subscribe-link {
     padding-top: 1rem;
     color: #444;
 }
