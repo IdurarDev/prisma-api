@@ -33,7 +33,7 @@ function Login() {
                             <div className='button-login-form'>
                                 <button type="submit">Submit</button>
                             </div>
-                            <div>
+                            <div className='subscribe-link'>
                                 <Link to="/subscribe">Pas de compte ? Inscrivez vous !</Link>
                             </div>
                         </Form></>
