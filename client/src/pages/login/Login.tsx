@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import * as Yup from "yup"
 import { Form, Formik } from "formik"
 
@@ -31,6 +32,9 @@ function Login() {
                             </div>
                             <div className='button-login-form'>
                                 <button type="submit">Submit</button>
+                            </div>
+                            <div>
+                                <Link to="/subscribe">Pas de compte ? Inscrivez vous !</Link>
                             </div>
                         </Form></>
                     }
