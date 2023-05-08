@@ -1,0 +1,21 @@
+.main-container-form-subscribe {
+    background-color: #faf9f9;
+    box-shadow: 3px 1px 10px #D8D8D8;
+    height: auto;
+    width: 35%;
+    margin: 3rem auto;
+    border-radius: 5px;
+}
+
+.subscribe-title-h2 {
+    padding-top: 1.5rem;
+}
+
+.container-form-subscribe {
+    margin: 30px auto;
+}
+
+.back-to-login {
+    padding-bottom: 1.5rem;
+    color: #444;
+}
