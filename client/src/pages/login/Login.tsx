@@ -7,12 +7,14 @@ import '../../css/login.css';
 
 function Login() {
     const schema = Yup.object({
+        Firstame: Yup.string().required(),
+        Lastname: Yup.string().required(),
         Email: Yup.string().email().required(),
         Password: Yup.string().matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/, "The password is required: a uppercase letter and a number min and a special character").required()
     })
 
     return (
-        <section className='main-container-form'>
+        <section className='main-container-form-login'>
             <div>
                 <Formik
                     initialValues={{ Email: "", Password: "" }}
@@ -21,7 +23,7 @@ function Login() {
                 >
                     {<>
                         <h2 className='login-title-h2'>Log in</h2>
-                        <Form className='container-form'>
+                        <Form className='container-form-login'>
                             <div className='input-login-form'>
                                 <label htmlFor="email">Email: </label>
                                 <input type="email" name="email" required />
