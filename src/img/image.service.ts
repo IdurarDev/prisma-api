@@ -3,6 +3,7 @@ import { db } from "../utils/db.server";
 export type Image = {
     id: string;
     title: string;
+    data: Buffer;
 }
 
 export const AllImages = async (): Promise<Image[]> => {
@@ -10,6 +11,7 @@ export const AllImages = async (): Promise<Image[]> => {
         select: {
             id: true,
             title: true,
+            data: true,
         }
     })
 }
