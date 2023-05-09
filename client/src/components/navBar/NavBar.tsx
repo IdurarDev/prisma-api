@@ -27,7 +27,7 @@ function NavBar() {
                     <li><Link to="/blog">Blog</Link></li>
                 </ul>
             </nav>
-        </header >
+        </header>
     )
 }
 
