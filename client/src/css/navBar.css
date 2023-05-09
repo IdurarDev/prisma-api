@@ -12,12 +12,12 @@
     width: 50%;
 }
 
-.connect {
+.connect-login {
     grid-area: connect;
     /* margin-left: 100%; */
 }
 
-.search {
+.search-bar {
     grid-area: search;
 }
 
