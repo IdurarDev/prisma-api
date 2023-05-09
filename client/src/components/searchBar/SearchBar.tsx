@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState } from 'react'
-import { Link } from 'react-router-dom';
 
 import { Plant } from '@prisma/client';
 import { Article } from '@prisma/client';
@@ -25,7 +24,7 @@ const SearchBar = () => {
                 onClick={() => setButtonSearch(!buttonSearch)}
                 className='search'
             >
-                <Link className='icon-search' to="/"><IoMdSearch /></Link>
+                <div className='icon-search'><IoMdSearch /></div>
             </div>
             {buttonSearch && (
                 <div className="searching-bar">
