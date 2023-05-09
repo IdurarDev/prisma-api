@@ -17,7 +17,7 @@ function NavBar() {
                     </Link>
                 </figure>
                 <div className='connect-login'><Link to="/login"><IoIosPerson /></Link></div>
-                <div className='search-bar'><Link to="/"><SearchBar /></Link></div>
+                <div className='search-bar'><SearchBar /></div>
             </section>
             <nav className='navbar-header'>
                 <ul>
