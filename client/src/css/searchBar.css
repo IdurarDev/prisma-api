@@ -1,5 +1,6 @@
 .icon-search {
     position: relative;
+    cursor: pointer;
 }
 
 .searching-bar {
@@ -9,6 +10,7 @@
     top:100px;
     right:120px;
     border-radius: 5px;
+    z-index: 3;
 }
 
 .input-search-bar {
