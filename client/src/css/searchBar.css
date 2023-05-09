@@ -1,0 +1,18 @@
+.icon-search {
+    position: relative;
+}
+
+.searching-bar {
+    position: absolute;
+    background-color: #faf9f9;
+    width: 80%;
+    top:100px;
+    right:120px;
+    border-radius: 5px;
+}
+
+.input-search-bar {
+    width: 95%;
+    margin: 0.7rem;
+    padding: 0.7rem;
+}
