@@ -7,10 +7,8 @@ import '../../css/login.css';
 
 function Login() {
     const schema = Yup.object({
-        Firstame: Yup.string().required(),
-        Lastname: Yup.string().required(),
         Email: Yup.string().email().required(),
-        Password: Yup.string().matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/, "The password is required: a uppercase letter and a number min and a special character").required()
+        Password: Yup.string().matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/, "The password is required: a uppercase letter and a number min and a special character").required(),
     })
 
     return (
