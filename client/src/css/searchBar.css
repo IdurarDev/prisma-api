@@ -7,7 +7,7 @@
     position: absolute;
     background-color: #faf9f9;
     width: 80%;
-    top:100px;
+    top:88px;
     right:120px;
     border-radius: 5px;
     z-index: 3;
@@ -17,4 +17,5 @@
     width: 95%;
     margin: 0.7rem;
     padding: 0.7rem;
+    height:4rem;
 }
