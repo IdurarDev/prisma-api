@@ -42,6 +42,7 @@ async function seed() {
             })
         })
     );
+
     const user = await db.user.findFirst({
         where: {
             firstname: "Hamid",
