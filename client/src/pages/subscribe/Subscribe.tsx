@@ -1,11 +1,20 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Form, Formik } from "formik"
-import schema from '../login/Login';
+import * as Yup from "yup"
+
 
 import '../../css/subscribe.css';
 
 function Subscribe() {
+    const schema = Yup.object({
+        Firstame: Yup.string().required(),
+        Lastname: Yup.string().required(),
+        Email: Yup.string().email().required(),
+        Password: Yup.string().matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/, "The password is required: a uppercase letter and a number min and a special character").required(),
+        ConfirmPassword: Yup.string().matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/, "The password is required: a uppercase letter and a number min and a special character").required()
+    })
+
     return (
         <Fragment>
             <section className="main-container-form-subscribe">
