@@ -9,6 +9,7 @@
 
 .subscribe-title-h2 {
     padding-top: 1.5rem;
+    color: #918d8d;
 }
 
 .container-form-subscribe {
@@ -18,4 +19,8 @@
 .back-to-login {
     padding-bottom: 1.5rem;
     color: #444;
+}
+
+.back-to-login > a {
+    text-decoration: none;
 }
