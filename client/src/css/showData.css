@@ -1,0 +1,28 @@
+.result-search-data {
+    position: absolute;
+    width: 100%;
+    background-color: #faf9f9;
+    padding: 1.5rem;
+    border-radius:0 0 5px 5px;
+    z-index: 3;
+    height: auto;
+}
+
+.result-searching {
+    font-size: 1.2rem;
+    color: #918d8d;
+}
+
+.result-one-data {
+    background-color: #F0F0F5;
+    width: 100%;
+    margin: 0.5rem auto;
+    padding: 0.5rem;
+    border-radius: 5px;
+    z-index: 3;
+    height: auto;
+}
+
+/* .no-result-hidden {
+    visibility: hidden;
+} */
