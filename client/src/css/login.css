@@ -15,6 +15,9 @@
     padding: 2rem;
     color: #918d8d;
 }
+.login-title-h2 > a, .subscribe-link > a {
+    text-decoration: none;
+}
 
 label {
     font-size: 1.2rem;
