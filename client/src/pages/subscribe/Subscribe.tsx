@@ -8,25 +8,30 @@ import '../../css/subscribe.css';
 
 function Subscribe() {
     const schema = Yup.object({
-        Firstame: Yup.string().required(),
-        Lastname: Yup.string().required(),
+        Firstame: Yup.string().min(3).required(),
+        Lastname: Yup.string().min(3).required(),
         Email: Yup.string().email().required(),
         Password: Yup.string().matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/, "The password is required: a uppercase letter and a number min and a special character").required(),
         ConfirmPassword: Yup.string().matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/, "The password is required: a uppercase letter and a number min and a special character").required()
     })
 
+    const [firstname, setFirstname] = useState('');
+    const [lastname, setLastname] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+
     return (
         <Fragment>
             <section className="main-container-form-subscribe">
                 <Formik
-                    initialValues={
-                        {
-                            Firstname: "",
-                            Lastname: "",
-                            Email: "",
-                            Password: ""
-                        }
-                    }
+                    initialValues={{
+                        Firstname: "",
+                        Lastname: "",
+                        Email: "",
+                        Password: "",
+                        confirmPassword: ""
+                    }}
                     onSubmit={value => console.log(value)}
                     validationSchema={schema}
                 >
