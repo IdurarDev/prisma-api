@@ -1,0 +1,21 @@
+.bannerBlog {
+    width: 100%;
+    position: relative;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+    height: 350px;
+}
+
+.text-over-banner-blog {
+    position: absolute;
+    top: 300px;
+    left: 500px;
+    color: #ffffffcf;
+    z-index: 1;
+}
+
+.para-over-banner-blog {
+    min-width: 450px;
+    margin: 0.5rem auto;
+    font-weight: bold;
+}
