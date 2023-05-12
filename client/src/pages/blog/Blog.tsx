@@ -2,8 +2,8 @@ import React from 'react';
 import { Fragment, useState, useEffect } from 'react'
 import { Blog } from '@prisma/client';
 
-import bannerArticle from '../../images/article-banner.jpg';
-import '../../css/articles.css';
+import bannerArticle from '../../images/blog-banner.jpg';
+import '../../css/blog.css';
 
 function Blogs() {
     useEffect(() => {
@@ -30,11 +30,11 @@ function Blogs() {
         <Fragment>
             <main>
                 <section className="banner-container">
-                    <article className="text-over-banner">
+                    <article className="text-over-banner-blog">
                         <h2>Blog sur les plantes</h2>
-                        <p className="para-over-banner">Mon super blog sur les plantes</p>
+                        <p className="para-over-banner-blog">Mon super blog sur les plantes et leurs bienfaits.</p>
                     </article>
-                    <img className="bannerArticle" src={bannerArticle} alt="une belle bouteille au milieu de feuilles vertes" />
+                    <img className="bannerBlog" src={bannerArticle} alt="une belle bouteille au milieu de feuilles vertes" />
                 </section>
 
                 {loading === true ? (
