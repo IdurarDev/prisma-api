@@ -8,13 +8,12 @@
 
 .logo {
     grid-area: logo;
-    height: 50px;
-    width: 50%;
+    width: 80px;
+    height: 55px;
 }
 
 .connect-login {
     grid-area: connect;
-    /* margin-left: 100%; */
 }
 
 .search-bar {
