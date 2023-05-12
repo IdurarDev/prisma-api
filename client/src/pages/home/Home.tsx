@@ -6,7 +6,7 @@ import { Article } from '@prisma/client';
 
 import { fetchApi } from "../../components/fetchApi";
 
-import bannerPlant from "../../images/plant-banner.jpg"
+import bannerPlant from "../../images/home-banner.jpg"
 import "../../css/home.css";
 
 function Home() {
