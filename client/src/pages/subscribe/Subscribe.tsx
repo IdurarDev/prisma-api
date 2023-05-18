@@ -65,7 +65,7 @@ function Subscribe() {
                     }
                 </Formik>
                 <div className="back-to-login">
-                    <Link to="/login">Return to login page</Link>
+                    <Link to="/login">Already have an account? Sign in</Link>
                 </div>
             </section>
         </Fragment>
