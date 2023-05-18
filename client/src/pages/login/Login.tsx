@@ -39,7 +39,7 @@ function Login() {
                                 <button type="submit">Submit</button>
                             </div>
                             <div className='subscribe-link'>
-                                <Link to="/signup">Pas de compte ? Inscrivez vous !</Link>
+                                <Link to="/signup">Don't have an account? Sign up</Link>
                             </div>
                         </Form></>
                     }
